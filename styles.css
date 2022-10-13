@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap');
+
+/* ---Global Reset--- */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Open Sans", sans-serif;
+}
+
+/* ---Styling Body--- */
+body, .container, .overlay {
+    height: 100vh;
+    background: #c8b6ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ---Stying Container--- */
+.container {
+    position: relative;
+    width: 350px;
+    height: 450px;
+    border-radius: 16px;
+    background: #fff;
+    overflow: hidden;
+}
+
+.container.active {
+    background: #bbd0ff;
+}
+
+.container .overlay {
+    position: absolute;
+    width: 340px;
+    height: 440px;
+    border-radius: 12px;
+    background: #c8b6ff;
+    font-size: 40px;
+    font-weight: 500;
+    color: #fff;
+}
+
+.container::before {
+    content: "";
+    position: absolute;
+    width: 650px;
+    height: 650px;
+    background-image: conic-gradient(transparent, transparent, transparent, #fff);
+}
+
+.container.active:before {
+    animation: rotate 4s linear infinite;
+}
+
+/* ---Keyframes rotate--- */
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
